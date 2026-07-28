@@ -23,9 +23,8 @@ Almanya'da geçerli veri koruma kuralları gereği, Google Fonts'a tarayıcıdan
 
 - **Seçilen font:** Inter (görsel karşılaştırma sonrası onaylandı)
 - **Ağırlıklar:** 400 (normal), 600 (semi-bold), 700 (bold) — `.woff2` formatında
-- **Dosya konumu:** `src/assets/fonts/` altında (`inter-400.woff2`, `inter-600.woff2`, `inter-700.woff2`)
-- **Kullanım:** `index.css` içinde `@font-face` tanımlarıyla yüklenir, `body`'ye `font-family: 'Inter', system-ui, sans-serif;` olarak uygulanır (yükleme başarısız/gecikirse sistem fontuna düşer)
-- **Kaynak:** Font dosyaları Google Fonts'un resmi indirme sayfasından (fonts.google.com) indirilip repoya eklenecek — build veya çalışma zamanında hiçbir dış istek yapılmayacak
+- **Kaynak:** `@fontsource/inter` npm paketi — Inter'in resmi woff2 dosyalarını (OFL lisanslı) npm registry üzerinden proje bağımlılığı olarak sağlar. Dosyalar `node_modules` içinde bulunur ve build'e dahil edilir; build veya çalışma zamanında Google sunucularına hiçbir istek yapılmaz.
+- **Kullanım:** `index.css` içinde `@fontsource/inter/400.css`, `@fontsource/inter/600.css`, `@fontsource/inter/700.css` import edilir, `body`'ye `font-family: 'Inter', system-ui, sans-serif;` olarak uygulanır (yükleme başarısız/gecikirse sistem fontuna düşer)
 
 ## Sayfalar & Routing
 
