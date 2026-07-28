@@ -1,3 +1,15 @@
+import { products } from '../data/products.js';
+import ProductCard from '../components/ProductCard.jsx';
+
 export default function Products() {
-  return <h1>Ürünler</h1>;
+  return (
+    <div className="products-page">
+      <h1>Ürünler</h1>
+      <div className="product-grid">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
 }
