@@ -246,3 +246,16 @@ button {
   color: white;
   border: none;
 }
+
+.order-complete-page {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.order-complete-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
