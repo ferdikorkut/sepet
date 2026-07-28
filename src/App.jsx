@@ -1,30 +1,26 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext.jsx';
-import { useCart } from './hooks/useCart.js';
-
-function DebugCart() {
-  const { cart, dispatch, totalItems, totalPrice } = useCart();
-  return (
-    <div>
-      <p>Total items: {totalItems} — Total price: {totalPrice}</p>
-      <button
-        onClick={() =>
-          dispatch({
-            type: 'ADD_ITEM',
-            product: { id: 1, name: 'Test Ürün', price: 10, image: '🧪' },
-          })
-        }
-      >
-        Add test item
-      </button>
-      <pre>{JSON.stringify(cart, null, 2)}</pre>
-    </div>
-  );
-}
+import Layout from './components/Layout.jsx';
+import Home from './pages/Home.jsx';
+import Products from './pages/Products.jsx';
+import Cart from './pages/Cart.jsx';
+import OrderComplete from './pages/OrderComplete.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 export default function App() {
   return (
     <CartProvider>
-      <DebugCart />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/urunler" element={<Products />} />
+            <Route path="/sepet" element={<Cart />} />
+            <Route path="/siparis-tamamlandi" element={<OrderComplete />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </CartProvider>
   );
 }
