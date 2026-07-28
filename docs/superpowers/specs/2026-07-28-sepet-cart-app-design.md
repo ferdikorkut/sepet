@@ -15,6 +15,17 @@ React Context API + Local Storage kullanarak öğretici, modern bir sepet (shopp
 - **Kalıcılık:** Local Storage (anahtar: `sepet-cart`)
 - **Ürün verisi:** Proje içinde sabit `src/data/products.js` dosyası (mock veri, dış API yok)
 - **Stil:** Sade CSS — global `index.css`, gerekirse bileşen/sayfa bazlı ek CSS dosyaları. CSS Modules veya Tailwind kullanılmayacak.
+- **Font:** Inter, self-hosted (bkz. "Fontlar" bölümü) — Google Fonts CDN üzerinden **çekilmeyecek**.
+
+## Fontlar (Self-Hosted)
+
+Almanya'da geçerli veri koruma kuralları gereği, Google Fonts'a tarayıcıdan doğrudan CDN üzerinden istek atmak (kullanıcının IP adresini Google'a iletmek anlamına geldiği için) hukuki risk taşıyor. Bu nedenle proje **hiçbir harici font CDN'ine istek atmayacak**; seçilen font dosyaları projeye gömülü (self-hosted) olarak servis edilecek.
+
+- **Seçilen font:** Inter (görsel karşılaştırma sonrası onaylandı)
+- **Ağırlıklar:** 400 (normal), 600 (semi-bold), 700 (bold) — `.woff2` formatında
+- **Dosya konumu:** `src/assets/fonts/` altında (`inter-400.woff2`, `inter-600.woff2`, `inter-700.woff2`)
+- **Kullanım:** `index.css` içinde `@font-face` tanımlarıyla yüklenir, `body`'ye `font-family: 'Inter', system-ui, sans-serif;` olarak uygulanır (yükleme başarısız/gecikirse sistem fontuna düşer)
+- **Kaynak:** Font dosyaları Google Fonts'un resmi indirme sayfasından (fonts.google.com) indirilip repoya eklenecek — build veya çalışma zamanında hiçbir dış istek yapılmayacak
 
 ## Sayfalar & Routing
 
