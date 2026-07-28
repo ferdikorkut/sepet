@@ -38,15 +38,13 @@ function cartReducer(state, action) {
   }
 }
 
-export function CartProvider({ children }) {
-  const [cart, dispatch] = useReducer(cartReducer, []);
+function getInitialCart() {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  return stored ? JSON.parse(stored) : [];
+}
 
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      dispatch({ type: 'LOAD_CART', cart: JSON.parse(stored) });
-    }
-  }, []);
+export function CartProvider({ children }) {
+  const [cart, dispatch] = useReducer(cartReducer, [], getInitialCart);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
