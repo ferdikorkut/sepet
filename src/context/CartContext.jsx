@@ -39,8 +39,12 @@ function cartReducer(state, action) {
 }
 
 function getInitialCart() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  return stored ? JSON.parse(stored) : [];
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
 }
 
 export function CartProvider({ children }) {
