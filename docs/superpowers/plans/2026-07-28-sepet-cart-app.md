@@ -309,15 +309,18 @@ function cartReducer(state, action) {
   }
 }
 
-export function CartProvider({ children }) {
-  const [cart, dispatch] = useReducer(cartReducer, []);
-
-  useEffect(() => {
+function getInitialCart() {
+  try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      dispatch({ type: 'LOAD_CART', cart: JSON.parse(stored) });
-    }
-  }, []);
+    const parsed = stored ? JSON.parse(stored) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+export function CartProvider({ children }) {
+  const [cart, dispatch] = useReducer(cartReducer, [], getInitialCart);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));

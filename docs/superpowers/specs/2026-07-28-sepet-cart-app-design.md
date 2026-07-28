@@ -106,10 +106,11 @@ sepet/
 | `LOAD_CART` | Uygulama ilk yüklendiğinde Local Storage'dan okunan sepeti state'e yükler |
 
 **CartProvider akışı:**
-1. `useReducer(cartReducer, [])` ile başlangıç state'i boş dizi.
-2. Mount olduğunda bir `useEffect`, Local Storage'daki `sepet-cart` anahtarını okur; veri varsa `LOAD_CART` dispatch eder.
-3. `cart` her değiştiğinde başka bir `useEffect`, güncel sepeti `JSON.stringify` ile `sepet-cart` anahtarına yazar.
-4. Context value: `{ cart, dispatch, totalItems, totalPrice }`. `totalItems` ve `totalPrice`, ayrı state olarak tutulmadan her render'da `cart` dizisinden türetilir.
+1. `useReducer(cartReducer, [], getInitialCart)` — üçüncü argüman olan `getInitialCart` lazy initializer'ı, `sepet-cart` anahtarını Local Storage'dan senkron biçimde okuyup `JSON.parse` eder (try/catch ile sarmalı, ayrıca parse edilen değer dizi değilse `[]`'e düşen bir `Array.isArray` kontrolüyle korumalı) ve sonucu doğrudan başlangıç state'i olarak kullanır. Ayrı bir "yükleme" effect'i yoktur.
+2. `cart` her değiştiğinde tek bir `useEffect` (`[cart]` bağımlılığıyla), güncel sepeti `JSON.stringify` ile `sepet-cart` anahtarına yazar.
+3. Context value: `{ cart, dispatch, totalItems, totalPrice }`. `totalItems` ve `totalPrice`, ayrı state olarak tutulmadan her render'da `cart` dizisinden türetilir.
+
+> **Not:** İlk tasarımda mount effect'i ile ayrı bir `LOAD_CART` dispatch'i planlanmıştı, ancak bu yaklaşım React 18 StrictMode'un geliştirme modunda effect'leri iki kez çalıştırmasıyla yarışa (race condition) giriyordu: yazma effect'i, yükleme effect'inin dispatch'i işlemesinden önce başlangıçtaki boş `[]` state'ini Local Storage'a yazabiliyor, StrictMode'un ikinci çalıştırması da bu bozulmuş değeri geri okuyunca kalıcı sepet her sayfa yenilemesinde kayboluyordu. Lazy initializer bu sorunu ortadan kaldırır çünkü yüklenen değer doğrudan ilk render state'i olur; effect sıralamasına bağlı bir yarış durumu oluşmaz.
 
 **`useCart` custom hook'u:** `CartContext`'i tüketmek için `useContext(CartContext)` sarmalar; Provider dışında çağrılırsa açıklayıcı bir hata fırlatır.
 
