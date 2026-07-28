@@ -259,3 +259,13 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.not-found-page {
+  text-align: center;
+  padding: 64px 0;
+}
+
+.not-found-page h1 {
+  font-size: 64px;
+  margin-bottom: 8px;
+}
