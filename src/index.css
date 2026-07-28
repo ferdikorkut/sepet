@@ -119,3 +119,32 @@ button {
   color: white;
   font-weight: 600;
 }
+
+.hero {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.featured-products h2 {
+  margin-bottom: 4px;
+}
