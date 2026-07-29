@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useCart } from '../hooks/useCart.js';
+import { CartIcon } from './icons.jsx';
 
 export default function Header() {
   const { totalItems } = useCart();
@@ -10,9 +11,12 @@ export default function Header() {
       <nav>
         <NavLink to="/" end>Ana Sayfa</NavLink>
         <NavLink to="/urunler">Ürünler</NavLink>
-        <NavLink to="/sepet" className="cart-link">
+        <NavLink to="/sepet">
+          <span className="cart-icon-wrap">
+            <CartIcon className="cart-icon" />
+            {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+          </span>
           Sepet
-          {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
         </NavLink>
       </nav>
     </header>
