@@ -2,3 +2,5 @@ node_modules/
 dist/
 .superpowers/
 .claude/
+design-reference/
+.DS_Store
