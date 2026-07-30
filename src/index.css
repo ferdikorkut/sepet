@@ -695,7 +695,7 @@ html {
     padding: 12px 16px;
   }
 
-  .page-content {
+  .site-footer {
     padding-bottom: 88px;
   }
 }
@@ -720,7 +720,7 @@ html {
 
 /* Search results (Products page) */
 
-.search-result-info {
+.products-page > p.search-result-info {
   color: var(--color-on-surface-variant);
   margin-bottom: 16px;
 }
