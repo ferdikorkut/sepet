@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { products } from '../data/products.js';
 import ProductCard from '../components/ProductCard.jsx';
+import Newsletter from '../components/Newsletter.jsx';
 
 const featured = products.slice(0, 4);
 
@@ -37,6 +38,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <Newsletter />
     </div>
   );
 }
