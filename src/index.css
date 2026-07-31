@@ -756,7 +756,7 @@ html {
 
 .products-page > p.search-result-info {
   color: var(--color-on-surface-variant);
-  margin-bottom: 16px;
+  margin-bottom: 28px;
   text-align: center;
 }
 
