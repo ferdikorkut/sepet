@@ -326,9 +326,18 @@ html {
 
 /* Products page */
 
+.products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
 .products-page h1 {
   font-size: 30px;
-  margin-bottom: 8px;
+  margin: 0;
 }
 
 .products-page > p {
@@ -666,13 +675,7 @@ html {
   margin-bottom: 24px;
 }
 
-/* Header search */
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
+/* Products search */
 
 .search-form {
   display: flex;
@@ -702,8 +705,7 @@ html {
 }
 
 @media (max-width: 640px) {
-  .site-header nav,
-  .search-form {
+  .site-header nav {
     display: none;
   }
 
