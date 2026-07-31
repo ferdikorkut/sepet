@@ -26,29 +26,31 @@ export default function Header() {
 
   return (
     <header className="site-header">
-      <div className="logo">Sepet</div>
-      <div className="header-right">
-        <nav>
-          <NavLink to="/" end>Ana Sayfa</NavLink>
-          <NavLink to="/urunler">Ürünler</NavLink>
-          <NavLink to="/sepet">
-            <span className="cart-icon-wrap">
-              <CartIcon className="cart-icon" />
-              {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
-            </span>
-            Sepet
-          </NavLink>
-        </nav>
-        <form className="search-form" onSubmit={handleSearchSubmit}>
-          <SearchIcon className="search-icon" />
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Ürün ara..."
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-          />
-        </form>
+      <div className="header-inner">
+        <div className="logo">Sepet</div>
+        <div className="header-right">
+          <nav>
+            <NavLink to="/" end>Ana Sayfa</NavLink>
+            <NavLink to="/urunler">Ürünler</NavLink>
+            <NavLink to="/sepet">
+              <span className="cart-icon-wrap">
+                <CartIcon className="cart-icon" />
+                {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+              </span>
+              Sepet
+            </NavLink>
+          </nav>
+          <form className="search-form" onSubmit={handleSearchSubmit}>
+            <SearchIcon className="search-icon" />
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Ürün ara..."
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+            />
+          </form>
+        </div>
       </div>
     </header>
   );
