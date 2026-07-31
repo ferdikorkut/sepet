@@ -265,9 +265,9 @@ html {
   }
 
   .hero-visual {
-    max-width: 280px;
+    max-width: 300px;
     margin: 0 auto;
-    font-size: 110px;
+    font-size: 250px;
   }
 }
 
