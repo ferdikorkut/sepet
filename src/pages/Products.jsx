@@ -1,7 +1,7 @@
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { products } from '../data/products.js';
 import ProductCard from '../components/ProductCard.jsx';
-import { SearchIcon } from '../components/icons.jsx';
+import { CloseIcon, SearchIcon } from '../components/icons.jsx';
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,6 +13,10 @@ export default function Products() {
   function handleSearchChange(event) {
     const value = event.target.value;
     setSearchParams(value ? { q: value } : {});
+  }
+
+  function handleClearSearch() {
+    setSearchParams({});
   }
 
   return (
@@ -28,12 +32,22 @@ export default function Products() {
             value={query}
             onChange={handleSearchChange}
           />
+          {query && (
+            <button
+              type="button"
+              className="search-clear-button"
+              aria-label="Aramayı temizle"
+              onClick={handleClearSearch}
+            >
+              <CloseIcon className="search-clear-icon" />
+            </button>
+          )}
         </form>
       </div>
       <p>Özenle seçilmiş ürünleri keşfedin.</p>
       {query && (
         <p className="search-result-info">
-          "{query}" için {filtered.length} sonuç bulundu. <Link to="/urunler">Aramayı temizle</Link>
+          "{query}" için {filtered.length} sonuç bulundu.
         </p>
       )}
       {filtered.length === 0 ? (

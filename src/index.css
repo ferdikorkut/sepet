@@ -719,6 +719,26 @@ html {
   font-family: inherit;
 }
 
+.search-clear-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  padding: 2px;
+  color: var(--color-on-surface-variant);
+  flex-shrink: 0;
+}
+
+.search-clear-button:hover {
+  color: var(--color-on-surface);
+}
+
+.search-clear-icon {
+  width: 16px;
+  height: 16px;
+}
+
 @media (max-width: 640px) {
   .site-header nav {
     display: none;
