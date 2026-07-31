@@ -631,6 +631,10 @@ html {
   .remove-button {
     flex: 0 0 auto;
   }
+
+  .cart-item-total {
+    margin-left: auto;
+  }
 }
 
 /* Order complete page */
