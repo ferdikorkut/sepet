@@ -263,6 +263,12 @@ html {
   .hero-actions {
     justify-content: center;
   }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 313px;
+    margin: 0 auto;
+  }
 }
 
 .featured-products {
