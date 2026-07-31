@@ -574,11 +574,13 @@ html {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .cart-layout {
     grid-template-columns: 1fr;
   }
+}
 
+@media (max-width: 768px) {
   .cart-item {
     display: flex;
     flex-wrap: wrap;
