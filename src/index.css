@@ -231,7 +231,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 96px;
+  font-size: 192px;
 }
 
 .hero-visual-accent {
@@ -267,6 +267,7 @@ html {
   .hero-visual {
     max-width: 280px;
     margin: 0 auto;
+    font-size: 110px;
   }
 }
 
