@@ -471,6 +471,11 @@ html {
   border: 1px solid var(--color-border);
   border-radius: 14px;
   padding: 16px;
+  overflow: hidden;
+}
+
+.cart-item > * {
+  min-width: 0;
 }
 
 .cart-item .product-image {
