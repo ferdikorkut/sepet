@@ -593,7 +593,7 @@ html {
   }
 }
 
-@media (max-width: 967px) and (min-width: 861px) {
+@media (max-width: 967px) and (min-width: 901px) {
   .cart-item {
     grid-template-columns: 60px minmax(200px, 1fr) auto auto;
     row-gap: 8px;
@@ -618,7 +618,7 @@ html {
   }
 }
 
-@media (max-width: 860px) and (min-width: 769px) {
+@media (max-width: 900px) and (min-width: 769px) {
   .cart-item {
     grid-template-columns: 60px minmax(200px, 1fr);
     row-gap: 6px;
