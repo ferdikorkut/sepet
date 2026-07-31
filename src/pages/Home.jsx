@@ -10,7 +10,7 @@ export default function Home() {
     <div className="home-page">
       <section className="hero">
         <div className="hero-content">
-          <span className="hero-tag">Yeni Ürünler Geldi</span>
+          <span className="hero-tag">Yeni Sezon Başladı</span>
           <h1>Sepet'e Hoş Geldiniz</h1>
           <p>İhtiyacınız olan ürünleri kolayca keşfedin ve sepete ekleyin.</p>
           <div className="hero-actions">
